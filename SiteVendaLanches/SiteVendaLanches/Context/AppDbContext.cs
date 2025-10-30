@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SiteVendaLanches.Models;
+﻿using SiteVendaLanches.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace SiteVendaLanches.Context
 {
@@ -10,6 +10,9 @@ namespace SiteVendaLanches.Context
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Lanche> Lanches { get; set; }
         public DbSet<CarrinhoCompraItem> CarrinhoCompraItens { get; set; }
+        public DbSet<Pedido> Pedidos { get; set; }
+        public DbSet<PedidoDetalhe> PedidoDetalhes { get; set; }
+
 
     }
 }
