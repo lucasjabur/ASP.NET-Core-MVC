@@ -3,11 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - SiteVendaLanches</title>
+    <title>@ViewData["Title"] - Área Administrativa</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SiteVendaLanches.styles.css" asp-append-version="true" />
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
@@ -19,24 +20,21 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1 flex-sm-row-reverse align-items-center mx-5">
-                        @await Component.InvokeAsync("CarrinhoCompraResumo")
-                        @await Component.InvokeAsync("CategoriaMenu")
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Contato" asp-action="Index">Contato</a>
+                            <a class="nav-link text-light" asp-area="Admin" asp-controller="Admin" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-light" asp-area="Admin" asp-controller="AdminLanches" asp-action="Index">Produtos</a>
                         </li>
-                        <form class="navbar-form navbar-right" asp-controller="Lanche" asp-action="Search" method="get">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Procurar por um produto" name="searchString" value="@ViewData["searchString"]" />
-                            </div>
-                        </form>
-                        @await Html.PartialAsync("_LoginPartial");
-                        @if (User.IsInRole("Admin"))
-                        {
-                            <a class="nav-link text-light" asp-area="Admin" asp-controller="Admin" asp-action="Index">Admin</a>
-                        } 
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="Admin" asp-controller="AdminCategorias" asp-action="Index">Categorias</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="Admin" asp-controller="AdminPedidos" asp-action="Index">Pedidos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="Admin" asp-controller="AdminRelatorioVendas" asp-action="Index">Relatório de Vendas</a>
+                        </li>
                     </ul>
                 </div>
             </div>

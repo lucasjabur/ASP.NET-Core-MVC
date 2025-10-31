@@ -1,6 +1,7 @@
 ﻿using SiteVendaLanches.Models;
 using SiteVendaLanches.Repository.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SiteVendaLanches.Controllers
 {
@@ -16,12 +17,14 @@ namespace SiteVendaLanches.Controllers
             _carrinhoCompra = carrinhoCompra;
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult Checkout()
         {
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Checkout(Pedido pedido) {
             int totalItensPedido = 0;
