@@ -27,6 +27,8 @@ namespace SiteVendaLanches
 
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
+            services.Configure<ConfigurationImages>(Configuration.GetSection("ConfigurationPastaImagens"));
+
             services.AddTransient<ICategoriaRepository, CategoriaRepository>();
             services.AddTransient<ILancheRepository, LancheRepository>();
             services.AddTransient<IPedidoRepository, PedidoRepository>();
@@ -78,7 +80,6 @@ namespace SiteVendaLanches
             app.UseSession();
 
             app.UseAuthentication();
-
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => {
